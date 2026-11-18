@@ -1,2 +1,2 @@
-# physics
-This repository is for physics students.
+# Физика
+Репозиторий для учеников школы
