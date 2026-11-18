@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Интерактивные тренажёры по физике</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
+    a { display: block; padding: 14px 18px; margin: 12px 0; background: #f0f4f8; color: #0f172a; text-decoration: none; border-radius: 8px; font-weight: 600; }
+    a:hover { background: #e2e8f0; }
+  </style>
+</head>
+<body>
+  <h1>Тренажёры по физике</h1>
+  <a href="grade-8/">8 класс · Урок 18. Плавление и отвердевание кристаллических тел</a>
+  <a href="grade-9/">9 класс · Подготовка к контрольной работе № 1 (Механика)</a>
+  <a href="grade-11/">11 класс · Свободные механические гармонические колебания</a>
+</body>
+</html>
