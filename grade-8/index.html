@@ -1,0 +1,2361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="figure">
+  <title>Урок 18. Плавление и отвердевание кристаллических тел. Удельная теплота плавления — Физика, 8 класс</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&family=Roboto+Mono:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.2/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.18.2/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.18.2/dist/contrib/auto-render.min.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Figure style) */
+      --background: #ffffff;
+      --surface-container-low: #f7f7f7;
+      --surface-container: #f2f2f2;
+      --surface-container-high: #ececec;
+
+      /* Ink */
+      --on-surface: #121212;
+      --on-surface-variant: #5f5f5f;
+
+      /* Rules */
+      --outline: #8a8a8a;
+      --outline-variant: #e3e3e3;
+
+      /* Accents */
+      --primary: #121212;
+      --on-primary: #ffffff;
+      --primary-container: #e8e8e8;
+      --on-primary-container: #121212;
+      --secondary: #1f5fa8;
+      --tertiary: #b43c0b;
+      --error: #b42318;
+      --on-error: #ffffff;
+
+      /* Data series */
+      --data-1: #e8590c;
+      --data-2: #2f6db5;
+      --data-3: #1b8a6b;
+      --data-4: #8e5bb5;
+      --data-context: #c4c4c4;
+
+      /* Semantic & Focus */
+      --positive: #136f53;
+      --positive-bg: #eef7f4;
+      --warning: #9a5b00;
+      --warning-bg: #fdf6ea;
+      --error-bg: #fdf0ef;
+      --focus: #1f5fa8;
+
+      /* Fonts (Cyrillic-safe pairs matching Figure's exact voices) */
+      --font-headline: 'Inter', sans-serif;
+      --font-body: 'Source Serif 4', 'Newsreader', serif;
+      --font-label: 'Roboto Mono', monospace;
+
+      /* Shape */
+      --rounded: 0.25rem;
+      --rounded-lg: 0;
+      --rounded-full: 0.25rem;
+
+      /* Style effects */
+      --ink-rule: 1px solid var(--on-surface);
+      --ink-rule-heavy: 2px solid var(--on-surface);
+      --hairline: 1px solid var(--outline-variant);
+      --grid-dash: 2 3;
+      --story-stroke: 3px;
+      --compare-stroke: 2px;
+      --context-stroke: 1.4px;
+      --bar-height: 6px;
+      --highlight-1: linear-gradient(transparent 60%, color-mix(in srgb, var(--data-1) 16%, var(--background)) 60%);
+      --highlight-2: linear-gradient(transparent 60%, color-mix(in srgb, var(--data-2) 16%, var(--background)) 60%);
+      --highlight-3: linear-gradient(transparent 60%, color-mix(in srgb, var(--data-3) 16%, var(--background)) 60%);
+
+      /* Type scale (Narrative) */
+      --display-size: clamp(2.125rem, 1.35rem + 2.8vw, 3.5rem);
+      --headline-size: clamp(1.5rem, 1.15rem + 1.4vw, 2.15rem);
+      --subhead-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.375rem);
+      --body-size: clamp(1.0625rem, 1rem + 0.2vw, 1.15rem);
+      --label-size: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+    button, input, select, textarea { font-family: inherit; }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-xl);
+      padding: var(--space-lg) var(--space-lg) var(--space-2xl);
+      max-width: 1120px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Focus rings */
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Typography helpers */
+    .kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--tertiary);
+      margin: 0 0 var(--space-sm);
+    }
+
+    h1 {
+      font-family: var(--font-headline);
+      font-weight: 800;
+      font-size: var(--display-size);
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      margin: 0 0 var(--space-md);
+      max-width: 24ch;
+    }
+
+    h2 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--headline-size);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0 0 var(--space-md);
+      padding-top: var(--space-md);
+      border-top: var(--ink-rule-heavy);
+    }
+
+    h3 {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: var(--subhead-size);
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      margin: var(--space-lg) 0 var(--space-sm);
+    }
+
+    p {
+      margin: 0 0 var(--space-md);
+      max-width: 66ch;
+    }
+
+    .deck {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: clamp(1.125rem, 1.05rem + 0.3vw, 1.28rem);
+      line-height: 1.5;
+      color: var(--on-surface-variant);
+      max-width: 62ch;
+      margin: 0 0 var(--space-lg);
+    }
+
+    .hl-1 {
+      background: var(--highlight-1);
+      color: var(--tertiary);
+      font-weight: 500;
+      padding: 0 var(--space-xs);
+    }
+    .hl-2 {
+      background: var(--highlight-2);
+      color: var(--secondary);
+      font-weight: 500;
+      padding: 0 var(--space-xs);
+    }
+    .hl-3 {
+      background: var(--highlight-3);
+      color: var(--positive);
+      font-weight: 500;
+      padding: 0 var(--space-xs);
+    }
+
+    .figure-value {
+      font-family: var(--font-label);
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+
+    .mono-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+
+    /* Top anchor nav & progress strip */
+    .lesson-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding: var(--space-sm) 0 var(--space-md);
+      border-bottom: var(--hairline);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-sm);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--secondary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      border-radius: var(--rounded);
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+    .nav-links a:hover {
+      background-color: var(--surface-container);
+    }
+
+    .progress-summary {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    .progress-chip {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--rounded-full);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Key figures row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+    .stat {
+      border-top: var(--ink-rule);
+      padding-top: var(--space-sm);
+      border-radius: var(--rounded-lg);
+    }
+    .stat-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+    .stat-val {
+      font-family: var(--font-label);
+      font-weight: 500;
+      font-size: clamp(1.35rem, 1.15rem + 0.8vw, 1.85rem);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+      color: var(--on-surface);
+      margin-bottom: var(--space-xs);
+    }
+    .stat-delta {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--tertiary);
+    }
+    .stat-delta--blue {
+      color: var(--secondary);
+    }
+    .stat-bar {
+      height: var(--bar-height);
+      background-color: var(--surface-container-high);
+      margin-top: var(--space-sm);
+    }
+    .stat-bar > span {
+      display: block;
+      height: 100%;
+      background-color: var(--data-1);
+      transition: width var(--dur-long) var(--ease-out);
+    }
+
+    /* Two-column asymmetric layout for concepts and interactive chart */
+    .split-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.95fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-lg);
+      margin: var(--space-md) 0 var(--space-lg);
+    }
+    .process-box {
+      border-top: var(--ink-rule);
+      padding: var(--space-md) 0 0;
+    }
+    .process-box--melt {
+      border-top: 3px solid var(--data-1);
+    }
+    .process-box--freeze {
+      border-top: 3px solid var(--data-2);
+    }
+    .process-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      margin: 0 0 var(--space-xs);
+    }
+    .process-title--melt { color: var(--tertiary); }
+    .process-title--freeze { color: var(--secondary); }
+
+    .aside-panel {
+      background-color: var(--surface-container-low);
+      padding: var(--space-lg);
+      border-top: var(--ink-rule);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      border-radius: var(--rounded);
+      cursor: pointer;
+      border: 1px solid var(--primary);
+      background-color: var(--primary);
+      color: var(--on-primary);
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .btn:hover:not(:disabled) {
+      background-color: color-mix(in srgb, var(--primary) 85%, var(--background));
+    }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .btn-secondary {
+      background-color: var(--background);
+      color: var(--on-surface);
+      border: 1px solid var(--outline);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background-color: var(--surface-container);
+      border-color: var(--on-surface);
+    }
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--on-surface-variant);
+      border: 1px solid var(--outline-variant);
+    }
+    .btn-ghost:hover:not(:disabled) {
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+    }
+    .btn-sm {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      font-size: 0.875rem;
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    /* Chips / Segmented tabs for chart substance & stage */
+    .chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .chip-btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+      border: 1px solid transparent;
+      border-radius: var(--rounded-full);
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .chip-btn:hover {
+      background-color: var(--surface-container-high);
+    }
+    .chip-btn.is-active {
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+
+    /* Chart furniture (Figure style) */
+    .chart-block {
+      margin: var(--space-md) 0;
+    }
+    .chart-header {
+      margin-bottom: var(--space-sm);
+    }
+    .chart-title {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: var(--subhead-size);
+      margin: 0 0 var(--space-xs);
+    }
+    .chart-sub {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      margin: 0;
+    }
+    .chart-svg-wrap {
+      width: 100%;
+      min-height: 290px;
+    }
+    .chart-svg-wrap svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .gridline {
+      stroke: var(--outline-variant);
+      stroke-width: 1;
+      stroke-dasharray: var(--grid-dash);
+    }
+    .baseline {
+      stroke: var(--on-surface);
+      stroke-width: 1;
+    }
+    .series-context {
+      stroke: var(--data-context);
+      stroke-width: var(--context-stroke);
+      fill: none;
+    }
+    .series-story {
+      stroke: var(--data-1);
+      stroke-width: var(--story-stroke);
+      fill: none;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+    .series-compare {
+      stroke: var(--data-2);
+      stroke-width: var(--compare-stroke);
+      fill: none;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+    .series-neutral {
+      stroke: var(--on-surface);
+      stroke-width: 2px;
+      fill: none;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+    .axis-tick {
+      font-family: var(--font-label);
+      font-size: 11px;
+      fill: var(--on-surface-variant);
+      font-variant-numeric: tabular-nums;
+    }
+    .label-story {
+      font-family: var(--font-label);
+      font-size: 11.5px;
+      font-weight: 500;
+      fill: var(--tertiary);
+    }
+    .label-compare {
+      font-family: var(--font-label);
+      font-size: 11.5px;
+      font-weight: 500;
+      fill: var(--secondary);
+    }
+    .label-ink {
+      font-family: var(--font-label);
+      font-size: 11.5px;
+      font-weight: 500;
+      fill: var(--on-surface);
+    }
+    .dot-story { fill: var(--data-1); }
+    .dot-compare { fill: var(--data-2); }
+    .dot-ink { fill: var(--on-surface); }
+    .cursor-line {
+      stroke: var(--on-surface);
+      stroke-width: 1;
+      stroke-dasharray: 4 3;
+    }
+    .chart-source {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      margin-top: var(--space-xs);
+    }
+
+    /* Slider & Field controls */
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-md);
+    }
+    .field-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      color: var(--on-surface);
+    }
+    input[type="range"] {
+      width: 100%;
+      min-height: 44px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+    .text-input, .select-input {
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      background-color: var(--background);
+      color: var(--on-surface);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      font-size: 1rem;
+    }
+    .select-input {
+      padding-right: var(--space-xl);
+    }
+    .mono-input {
+      font-family: var(--font-label);
+      font-variant-numeric: tabular-nums;
+    }
+    .text-input:focus-visible, .select-input:focus-visible {
+      border-color: var(--on-surface);
+      outline: 2px solid var(--focus);
+      outline-offset: 1px;
+    }
+
+    /* Lattice visual */
+    .lattice-box {
+      border: var(--hairline);
+      background-color: var(--background);
+      padding: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .lattice-box svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .atom-solid { fill: var(--data-2); }
+    .atom-melt { fill: var(--data-1); }
+    .bond-line { stroke: var(--outline-variant); stroke-width: 1.5; }
+    .bond-broken { stroke: var(--data-1); stroke-width: 1.5; stroke-dasharray: 3 3; }
+
+    /* Formula callout */
+    .formula-band {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+      gap: var(--space-xl);
+      padding: var(--space-lg);
+      background-color: var(--surface-container-low);
+      border-top: var(--ink-rule-heavy);
+      align-items: center;
+      margin: var(--space-lg) 0;
+    }
+    .formula-hero {
+      font-family: var(--font-label);
+      font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--tertiary);
+      letter-spacing: -0.02em;
+    }
+    .formula-derivations {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-top: var(--space-sm);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+
+    /* Reference Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin: var(--space-md) 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    th {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-align: left;
+      padding: var(--space-sm) var(--space-md) var(--space-sm) 0;
+      border-bottom: var(--ink-rule);
+      color: var(--on-surface-variant);
+      font-weight: 500;
+    }
+    th.num, td.num {
+      text-align: right;
+      font-family: var(--font-label);
+      font-variant-numeric: tabular-nums;
+      padding-right: 0;
+      padding-left: var(--space-md);
+    }
+    td {
+      padding: var(--space-sm) var(--space-md) var(--space-sm) 0;
+      border-bottom: var(--hairline);
+    }
+    tr.is-highlighted {
+      background-color: var(--surface-container-low);
+    }
+    tr.is-highlighted td:first-child {
+      color: var(--tertiary);
+      font-weight: 600;
+    }
+
+    /* Mini calculator */
+    .calc-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--space-md);
+      align-items: end;
+      margin-top: var(--space-md);
+    }
+
+    /* Quiz cards */
+    .quiz-list {
+      display: grid;
+      gap: var(--space-lg);
+      margin-top: var(--space-md);
+    }
+    .question-item {
+      border-top: var(--hairline);
+      padding-top: var(--space-lg);
+    }
+    .question-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+    .q-num {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-surface-variant);
+    }
+    .q-badge {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      padding: 2px var(--space-sm);
+      border-radius: var(--rounded-full);
+      background-color: var(--surface-container);
+      color: var(--on-surface-variant);
+    }
+    .q-badge--ok {
+      background-color: var(--positive-bg);
+      color: var(--positive);
+    }
+    .q-badge--err {
+      background-color: var(--error-bg);
+      color: var(--error);
+    }
+    .q-stem {
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      font-weight: 500;
+      margin: 0 0 var(--space-md);
+      max-width: 66ch;
+    }
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      min-height: 48px;
+      padding: var(--space-sm) var(--space-md);
+      text-align: left;
+      background-color: var(--background);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .option-btn:hover:not(:disabled) {
+      background-color: var(--surface-container-low);
+      border-color: var(--outline);
+    }
+    .option-btn.is-selected {
+      border-color: var(--on-surface);
+      box-shadow: inset 0 0 0 1px var(--on-surface);
+      background-color: var(--surface-container-low);
+    }
+    .option-btn.is-correct {
+      background-color: var(--positive-bg);
+      border-color: var(--positive);
+      color: var(--on-surface);
+    }
+    .option-btn.is-wrong {
+      background-color: var(--error-bg);
+      border-color: var(--error);
+      color: var(--on-surface);
+    }
+    .option-letter {
+      font-family: var(--font-label);
+      font-weight: 700;
+      font-size: var(--label-size);
+      min-width: 24px;
+      color: var(--on-surface-variant);
+    }
+
+    .feedback-box {
+      padding: var(--space-sm) var(--space-md);
+      margin-top: var(--space-sm);
+      border-left: 3px solid var(--outline);
+      background-color: var(--surface-container-low);
+      font-size: 0.95rem;
+      max-width: 66ch;
+    }
+    .feedback-box.is-ok {
+      border-left-color: var(--positive);
+      background-color: var(--positive-bg);
+    }
+    .feedback-box.is-err {
+      border-left-color: var(--error);
+      background-color: var(--error-bg);
+    }
+
+    /* Open questions & Practice input rows */
+    .answer-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: end;
+      margin-bottom: var(--space-sm);
+    }
+    .input-unit-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .unit-tag {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      padding: 0 var(--space-xs);
+    }
+
+    /* Worked examples (Section 3) */
+    .example-card {
+      border-top: var(--ink-rule);
+      padding: var(--space-lg) 0;
+    }
+    .example-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+      gap: var(--space-xl);
+      margin-top: var(--space-md);
+    }
+    .dano-box {
+      background-color: var(--surface-container-low);
+      padding: var(--space-md);
+      font-family: var(--font-label);
+      font-size: 0.875rem;
+      line-height: 1.65;
+      border-left: 2px solid var(--on-surface);
+    }
+    .dano-title {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+    .step-list {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .step-item {
+      padding: var(--space-sm) var(--space-md);
+      border-left: 2px solid var(--outline-variant);
+      transition: border-color var(--dur-short) var(--ease-out);
+    }
+    .step-item.is-revealed {
+      border-left-color: var(--data-1);
+    }
+    .step-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--tertiary);
+      margin-bottom: var(--space-xs);
+    }
+
+    /* Practice tasks (Section 4) */
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+      gap: var(--space-xl);
+      margin-top: var(--space-md);
+    }
+    .practice-card {
+      border-top: var(--ink-rule);
+      padding-top: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .practice-solution {
+      background-color: var(--surface-container-low);
+      padding: var(--space-md);
+      font-size: 0.92rem;
+      border-left: 2px solid var(--secondary);
+      margin-top: var(--space-sm);
+    }
+    .practice-hint {
+      background-color: var(--warning-bg);
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.9rem;
+      border-left: 2px solid var(--warning);
+      margin-top: var(--space-sm);
+    }
+
+    .footer-meta {
+      border-top: var(--ink-rule);
+      padding-top: var(--space-lg);
+      margin-top: var(--space-xl);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+
+    .hidden { display: none; }
+
+    @media (max-width: 820px) {
+      .split-grid,
+      .formula-band,
+      .example-grid,
+      .calc-row {
+        grid-template-columns: 1fr;
+      }
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-lg);
+      }
+      .compare-grid,
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-grid">
+
+    <!-- Masthead & Navigation -->
+    <header>
+      <p class="kicker">Физика · 8 класс · Урок 18 · И. М. Пёрышкин § 12–14 · И. И. Гайкова с. 49–51</p>
+      <h1>Плавление и отвердевание кристаллических тел. Удельная теплота плавления</h1>
+      <p class="deck">
+        Почему лёд при таянии не нагревается выше нуля, куда исчезает подводимая теплота
+        и как рассчитать энергию фазового перехода по формуле \(Q = \lambda m\).
+      </p>
+
+      <nav class="lesson-nav" aria-label="Разделы урока">
+        <ul class="nav-links">
+          <li><a href="#theory">1. Теория и график \(t(\tau)\)</a></li>
+          <li><a href="#quiz">2. Тест на повторение</a></li>
+          <li><a href="#examples">3. Разбор задач</a></li>
+          <li><a href="#practice">4. Практикум с проверкой</a></li>
+        </ul>
+        <div class="progress-summary">
+          <span class="progress-chip" id="progress-badge" aria-live="polite">Выполнено: 0 / 16</span>
+          <button type="button" class="btn btn-ghost btn-sm" id="reset-all-btn" onclick="handleResetAll(this)">Сбросить прогресс</button>
+        </div>
+      </nav>
+
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-label">Формула перехода</div>
+          <div class="stat-val">\(Q = \lambda \cdot m\)</div>
+          <div class="stat-delta">поглощение при плавлении, выделение при кристаллизации</div>
+          <div class="stat-bar"><span style="width: 100%;"></span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Удельная теплота плавления льда</div>
+          <div class="stat-val">\(3{,}4 \cdot 10^5\text{ Дж/кг}\)</div>
+          <div class="stat-delta stat-delta--blue">требуется для плавления 1 кг льда при 0 °C</div>
+          <div class="stat-bar"><span style="width: 87%; background-color: var(--data-2);"></span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Температура при фазовом переходе</div>
+          <div class="stat-val">\(t = t_{\text{пл}} = \text{const}\)</div>
+          <div class="stat-delta">внутренняя энергия растёт, скорость частиц — нет</div>
+          <div class="stat-bar"><span style="width: 65%; background-color: var(--data-3);"></span></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION 1: THEORY & INTERACTIVE GRAPH -->
+    <section id="theory">
+      <h2>1. Наглядная теория: физика фазовых переходов</h2>
+
+      <p>
+        Вещество в природе может переходить из одного агрегатного состояния в другое.
+        В этом уроке рассматриваются два взаимно обратных перехода между твёрдым кристаллическим и жидким состояниями:
+        <span class="hl-1">плавление</span> и <span class="hl-2">отвердевание (кристаллизация)</span>.
+      </p>
+
+      <div class="compare-grid">
+        <div class="process-box process-box--melt">
+          <div class="process-title process-title--melt">Плавление (Твёрдое → Жидкость)</div>
+          <p>
+            Переход вещества из твёрдого состояния в жидкое. Для этого кристаллу необходимо
+            <strong>сообщить количество теплоты</strong>. Энергия тратится на разрыв связей в
+            кристаллической решётке — потенциальная энергия молекул возрастает.
+          </p>
+        </div>
+        <div class="process-box process-box--freeze">
+          <div class="process-title process-title--freeze">Отвердевание / кристаллизация (Жидкость → Твёрдое)</div>
+          <p>
+            Переход вещества из жидкого состояния в твёрдое. При этом вещество
+            <strong>отдаёт теплоту</strong> окружающей среде. Частицы выстраиваются в упорядоченную
+            решётку, а их потенциальная энергия уменьшается.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        <strong>Главное свойство кристаллических тел (§ 12):</strong> плавление и отвердевание данного кристаллического вещества
+        происходят при одной и той же строго определённой температуре — <strong>температуре плавления \(t_{\text{пл}}\)</strong>
+        (например, \(0\,^\circ\text{C}\) для льда, \(232\,^\circ\text{C}\) для олова, \(327\,^\circ\text{C}\) для свинца).
+        Аморфные тела (стекло, воск, смола) не имеют кристаллической решётки, поэтому у них нет постоянной температуры плавления — они размягчаются постепенно.
+      </p>
+
+      <!-- Interactive t(tau) graph + Molecular state inspector -->
+      <h3>График температурной зависимости \(t(\tau)\) и модель кристаллической решётки</h3>
+      <p>
+        На графике показан полный цикл: нагревание твёрдого тела (<span class="hl-1">участок AB</span>),
+        плавление (<span class="hl-1">плато BC</span>), нагревание жидкости (CD),
+        а затем охлаждение жидкости (DE), кристаллизация (<span class="hl-2">плато EF</span>) и остывание твёрдого тела (FK).
+        Выберите вещество и перемещайте ползунок времени \(\tau\), чтобы увидеть, как меняются внутренняя энергия и кристаллическая решётка.
+      </p>
+
+      <div class="chip-group" role="group" aria-label="Выбор вещества для графика">
+        <button type="button" class="chip-btn is-active" id="sub-btn-ice" onclick="selectGraphSubstance('ice')">Лёд / вода (\(0\,^\circ\text{C}\))</button>
+        <button type="button" class="chip-btn" id="sub-btn-tin" onclick="selectGraphSubstance('tin')">Олово (\(232\,^\circ\text{C}\))</button>
+        <button type="button" class="chip-btn" id="sub-btn-lead" onclick="selectGraphSubstance('lead')">Свинец (\(327\,^\circ\text{C}\))</button>
+      </div>
+
+      <div class="split-grid">
+        <div class="chart-block">
+          <div class="chart-header">
+            <div class="chart-title" id="graph-title">Нагревание, плавление, охлаждение и отвердевание: Лёд / вода</div>
+            <p class="chart-sub" id="graph-subtitle">Температура t (°C) в зависимости от времени теплообмена τ (мин); температура плавления t_пл = 0 °C</p>
+          </div>
+          <div class="chart-svg-wrap" id="phase-chart-container">
+            <svg id="phase-svg" viewBox="0 0 640 310" role="img" aria-label="График зависимости температуры от времени при плавлении и отвердевании"></svg>
+          </div>
+          <p class="chart-source">Источник модели: учебник И. М. Пёрышкина «Физика. 8 класс», § 13 (при постоянной мощности теплообмена).</p>
+        </div>
+
+        <aside class="aside-panel" aria-label="Инспектор состояния вещества">
+          <div class="control-group">
+            <label for="tau-slider" class="field-label">Время процесса \(\tau\): <span class="figure-value" id="tau-readout">8 мин</span></label>
+            <input type="range" id="tau-slider" min="0" max="24" step="0.5" value="8" oninput="setGraphTime(this.value)">
+          </div>
+
+          <div class="chip-group" role="group" aria-label="Быстрый выбор участка графика">
+            <button type="button" class="chip-btn" id="seg-btn-AB" onclick="jumpToStage('AB')">AB</button>
+            <button type="button" class="chip-btn is-active" id="seg-btn-BC" onclick="jumpToStage('BC')">BC</button>
+            <button type="button" class="chip-btn" id="seg-btn-CD" onclick="jumpToStage('CD')">CD</button>
+            <button type="button" class="chip-btn" id="seg-btn-DE" onclick="jumpToStage('DE')">DE</button>
+            <button type="button" class="chip-btn" id="seg-btn-EF" onclick="jumpToStage('EF')">EF</button>
+            <button type="button" class="chip-btn" id="seg-btn-FK" onclick="jumpToStage('FK')">FK</button>
+          </div>
+
+          <div class="lattice-box">
+            <div class="mono-label" style="margin-bottom: var(--space-xs);">Состояние кристаллической решётки:</div>
+            <svg id="lattice-svg" viewBox="0 0 280 120" aria-hidden="true"></svg>
+          </div>
+
+          <div id="stage-info-box">
+            <div class="stat-label" id="stage-code">Участок BC · Плавление</div>
+            <div class="stat-val" id="stage-temp" style="font-size: 1.35rem;">\(t = 0\,^\circ\text{C}\) (постоянна)</div>
+            <p id="stage-desc" style="font-size: 0.95rem; margin-bottom: var(--space-sm);">
+              Кристаллическая решётка разрушается. В сосуде одновременно присутствуют твёрдая и жидкая фазы.
+              Подводимое тепло идёт на рост потенциальной энергии молекул, поэтому температура не растёт.
+            </p>
+            <div class="mono-label" id="stage-formula">Расчётная формула: Q = λ · m</div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Section 1.3: Physical meaning of lambda & table -->
+      <h3>Физический смысл удельной теплоты плавления \(\lambda\) (§ 14)</h3>
+      <p>
+        Разным кристаллическим веществам одинаковой массы требуется разное количество теплоты для разрушения решётки.
+        Чтобы характеризовать это свойство вещества, вводят <strong>удельную теплоту плавления \(\lambda\)</strong> («лямбда»).
+      </p>
+
+      <div class="formula-band">
+        <div>
+          <div class="mono-label" style="margin-bottom: var(--space-xs);">Основная формула (§ 14)</div>
+          <div class="formula-hero">Q = λ · m</div>
+          <div class="formula-derivations">
+            <span>\(\lambda = \dfrac{Q}{m}\;\left[\dfrac{\text{Дж}}{\text{кг}}\right]\)</span>
+            <span>\(m = \dfrac{Q}{\lambda}\;[\text{кг}]\)</span>
+          </div>
+        </div>
+        <div>
+          <p style="margin-bottom: var(--space-sm);">
+            <strong>Физический смысл:</strong> удельная теплота плавления показывает, какое количество теплоты
+            необходимо сообщить кристаллическому телу массой \(1\text{ кг}\), взятому при температуре плавления,
+            чтобы полностью перевести его в жидкое состояние при той же температуре.
+          </p>
+          <p style="margin-bottom: 0;">
+            Например, \(\lambda_{\text{льда}} = 3{,}4 \cdot 10^5\text{ Дж/кг}\) означает: для превращения \(1\text{ кг}\) льда
+            при \(0\,^\circ\text{C}\) в воду при \(0\,^\circ\text{C}\) требуется \(340\,000\text{ Дж}\) теплоты.
+            При кристаллизации \(1\text{ кг}\) воды при \(0\,^\circ\text{C}\) ровно столько же теплоты выделится.
+          </p>
+        </div>
+      </div>
+
+      <h3>Справочные значения и калькулятор энергии перехода</h3>
+      <p>
+        Данные из учебника И. М. Пёрышкина (§ 12, § 14) и сборника И. И. Гайковой (с. 49). Выберите вещество в калькуляторе под таблицей — строка подсветится автоматически.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Вещество</th>
+              <th class="num">Температура плавления \(t_{\text{пл}}\), °C</th>
+              <th class="num">Удельная теплота плавления \(\lambda\), Дж/кг</th>
+              <th class="num">Удельная теплоёмкость \(c\), Дж/(кг·°C)</th>
+            </tr>
+          </thead>
+          <tbody id="constants-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="aside-panel" style="margin-top: var(--space-md);">
+        <div class="mono-label" style="margin-bottom: var(--space-sm);">Интерактивный расчёт \(Q = \lambda \cdot m\) (при температуре плавления)</div>
+        <div class="calc-row">
+          <div class="control-group" style="margin-bottom: 0;">
+            <label for="calc-substance" class="field-label">Вещество из таблицы</label>
+            <select id="calc-substance" class="select-input" onchange="updateMeltingCalc()">
+              <option value="ice">Лёд (t_пл = 0 °C, λ = 3,4·10⁵ Дж/кг)</option>
+              <option value="lead">Свинец (t_пл = 327 °C, λ = 0,25·10⁵ Дж/кг)</option>
+              <option value="tin">Олово (t_пл = 232 °C, λ = 0,59·10⁵ Дж/кг)</option>
+              <option value="steel">Сталь (t_пл = 1500 °C, λ = 0,84·10⁵ Дж/кг)</option>
+              <option value="copper">Медь (t_пл = 1085 °C, λ = 2,1·10⁵ Дж/кг)</option>
+              <option value="iron">Железо (t_пл = 1539 °C, λ = 2,7·10⁵ Дж/кг)</option>
+              <option value="aluminum">Алюминий (t_пл = 660 °C, λ = 3,9·10⁵ Дж/кг)</option>
+            </select>
+          </div>
+          <div class="control-group" style="margin-bottom: 0;">
+            <label for="calc-mass" class="field-label">Масса образца m (кг)</label>
+            <input type="number" id="calc-mass" class="text-input mono-input" min="0.01" max="1000" step="0.1" value="2" oninput="updateMeltingCalc()">
+          </div>
+          <div class="stat" style="margin-top: 0;">
+            <div class="stat-label">Требуемая теплота Q</div>
+            <div class="stat-val" id="calc-result-q" style="color: var(--tertiary);">680 кДж</div>
+            <div class="mono-label" id="calc-result-raw">680 000 Дж</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: INTERACTIVE REVIEW QUIZ -->
+    <section id="quiz">
+      <h2>2. Интерактивный тест на повторение</h2>
+      <p>
+        Тест состоит из двух частей: <strong>Часть А</strong> (6 закрытых вопросов с выбором одного варианта ответа)
+        и <strong>Часть Б</strong> (4 открытых вопроса с вводом численного или текстового ответа).
+        Каждый ответ проверяется сразу с разбором физической причины.
+      </p>
+
+      <h3>Часть А. Закрытые вопросы (выбор одного ответа)</h3>
+      <div class="quiz-list" id="closed-quiz-container"></div>
+
+      <h3 style="margin-top: var(--space-2xl);">Часть Б. Открытые вопросы (введите ответ)</h3>
+      <div class="quiz-list" id="open-quiz-container"></div>
+    </section>
+
+    <!-- SECTION 3: WORKED EXAMPLES -->
+    <section id="examples">
+      <h2>3. Разбор типовых расчётных задач</h2>
+      <p>
+        Пошаговые образцы оформления и решения задач из учебника И. М. Пёрышкина (§ 14), сборника И. И. Гайковой (с. 49–51)
+        и комбинированной задачи формата ВПР. Нажимайте на кнопку «Следующий шаг» или «Показать все шаги», чтобы проследить логику решения.
+      </p>
+
+      <div id="worked-examples-container"></div>
+    </section>
+
+    <!-- SECTION 4: INDEPENDENT PRACTICE WITH VERIFICATION -->
+    <section id="practice">
+      <h2>4. Практические задачи для самостоятельного решения</h2>
+      <p>
+        Решите 6 задач разной сложности (от прямого расчёта по формуле \(Q = \lambda m\) до комбинированных задач на сгорание топлива и тепловой баланс).
+        При вводе дробных чисел допускаются как точка, так и запятая.
+      </p>
+
+      <div class="practice-grid" id="practice-tasks-container"></div>
+    </section>
+
+    <footer class="footer-meta">
+      <span>Учебные материалы: И. М. Пёрышкин «Физика. 8 класс» (§ 12–14); И. И. Гайкова «Физика. Учимся решать задачи. 7–8 кл.» (с. 49–51); Демонстрационный вариант ВПР по физике 8 класс (2026).</span>
+      <span class="figure-value" id="footer-score">Итог: 0 / 16</span>
+    </footer>
+
+  </main>
+
+  <api-shim></api-shim>
+  <script>
+    // =========================================================================
+    // DATA DEFINITIONS (All strings in backtick template literals)
+    // =========================================================================
+
+    const SUBSTANCES = [
+      { id: `ice`, name: `Лёд`, tMelt: 0, lambda: 340000, lambdaSci: `3,4 · 10⁵`, c: 2100 },
+      { id: `lead`, name: `Свинец`, tMelt: 327, lambda: 25000, lambdaSci: `0,25 · 10⁵`, c: 140 },
+      { id: `tin`, name: `Олово`, tMelt: 232, lambda: 59000, lambdaSci: `0,59 · 10⁵`, c: 220 },
+      { id: `steel`, name: `Сталь`, tMelt: 1500, lambda: 84000, lambdaSci: `0,84 · 10⁵`, c: 500 },
+      { id: `copper`, name: `Медь`, tMelt: 1085, lambda: 210000, lambdaSci: `2,1 · 10⁵`, c: 400 },
+      { id: `iron`, name: `Железо`, tMelt: 1539, lambda: 270000, lambdaSci: `2,7 · 10⁵`, c: 460 },
+      { id: `aluminum`, name: `Алюминий`, tMelt: 660, lambda: 390000, lambdaSci: `3,9 · 10⁵`, c: 920 }
+    ];
+
+    const GRAPH_PROFILES = {
+      ice: {
+        name: `Лёд / вода`,
+        tMelt: 0,
+        yMin: -30,
+        yMax: 40,
+        yTicks: [-30, -20, -10, 0, 10, 20, 30, 40],
+        // Points: [tau, temp]
+        points: [
+          [0, -25],
+          [4, 0],
+          [10, 0],
+          [13, 30],
+          [16, 0],
+          [21, 0],
+          [24, -20]
+        ]
+      },
+      tin: {
+        name: `Олово`,
+        tMelt: 232,
+        yMin: 150,
+        yMax: 300,
+        yTicks: [150, 180, 210, 232, 270, 300],
+        points: [
+          [0, 170],
+          [4, 232],
+          [10, 232],
+          [13, 285],
+          [16, 232],
+          [21, 232],
+          [24, 180]
+        ]
+      },
+      lead: {
+        name: `Свинец`,
+        tMelt: 327,
+        yMin: 250,
+        yMax: 400,
+        yTicks: [250, 280, 310, 327, 360, 400],
+        points: [
+          [0, 265],
+          [4, 327],
+          [10, 327],
+          [13, 385],
+          [16, 327],
+          [21, 327],
+          [24, 275]
+        ]
+      }
+    };
+
+    const STAGE_INFO = {
+      AB: {
+        code: `Участок AB · Нагревание твёрдого тела`,
+        midTau: 2,
+        phase: `solid`,
+        desc: `Тело находится в твёрдом кристаллическом состоянии. Подводимая теплота увеличивает скорость колебаний молекул в узлах решётки — температура растёт.`,
+        formula: `Q₁ = c_тв · m · (t_пл − t₁)`
+      },
+      BC: {
+        code: `Участок BC · Плавление`,
+        midTau: 7,
+        phase: `melting`,
+        desc: `Кристаллическая решётка разрушается. В сосуде одновременно присутствуют твёрдая и жидкая фазы. Вся энергия идёт на разрыв связей, температура постоянна.`,
+        formula: `Q₂ = λ · m`
+      },
+      CD: {
+        code: `Участок CD · Нагревание жидкости`,
+        midTau: 11.5,
+        phase: `liquid`,
+        desc: `Кристалл полностью расплавился. Вся подводимая энергия снова идёт на увеличение средней кинетической энергии движения молекул жидкости — температура растёт.`,
+        formula: `Q₃ = c_жидк · m · (t_макс − t_пл)`
+      },
+      DE: {
+        code: `Участок DE · Охлаждение жидкости`,
+        midTau: 14.5,
+        phase: `liquid`,
+        desc: `Источник нагрева выключен, жидкость отдаёт теплоту окружающей среде. Скорость движения молекул падает, температура снижается до температуры кристаллизации.`,
+        formula: `Q₄ = c_жидк · m · (t_пл − t_макс) < 0`
+      },
+      EF: {
+        code: `Участок EF · Отвердевание (кристаллизация)`,
+        midTau: 18.5,
+        phase: `freezing`,
+        desc: `Восстанавливается кристаллическая решётка. При этом выделяется энергия (потенциальная энергия падает), которая компенсирует теплоотдачу, поэтому температура не падает.`,
+        formula: `Q₅ = −λ · m (выделяется λ · m)`
+      },
+      FK: {
+        code: `Участок FK · Охлаждение твёрдого тела`,
+        midTau: 22.5,
+        phase: `solid`,
+        desc: `Вещество полностью отвердело. При дальнейшем теплоотводе амплитуда колебаний молекул в узлах решётки уменьшается, температура кристалла понижается.`,
+        formula: `Q₆ = c_тв · m · (t_кон − t_пл) < 0`
+      }
+    };
+
+    const CLOSED_QUESTIONS = [
+      {
+        id: `cq1`,
+        stem: `При переходе вещества из жидкого состояния в кристаллическое (отвердевание) его температура:`,
+        options: [
+          `Постоянно растёт из-за выделения теплоты`,
+          `Постоянно падает до нуля градусов`,
+          `Остаётся неизменной до полного отвердевания всего вещества`,
+          `Сначала падает, затем резко возрастает`
+        ],
+        correct: 2,
+        explanation: `Во время кристаллизации потенциальная энергия частиц уменьшается, а выделяющаяся энергия компенсирует отвод тепла в среду. Температура равна t_пл до полного отвердевания.`
+      },
+      {
+        id: `cq2`,
+        stem: `Куда расходуется количество теплоты, подводимое к кристаллическому телу во время его плавления при постоянной температуре?`,
+        options: [
+          `На увеличение скорости теплового движения молекул`,
+          `На разрушение кристаллической решётки (рост потенциальной энергии молекул)`,
+          `На увеличение массы молекул вещества`,
+          `Полностью теряется на излучение, не меняя внутреннюю энергию`
+        ],
+        correct: 1,
+        explanation: `Средняя кинетическая энергия молекул при t = const не меняется, но внутренняя энергия растёт за счёт разрушения упорядоченных связей кристаллической решётки.`
+      },
+      {
+        id: `cq3`,
+        stem: `Удельная теплота плавления алюминия равна 3,9 · 10⁵ Дж/кг. Что означает это число?`,
+        options: [
+          `Для нагревания 1 кг алюминия на 1 °C требуется 3,9 · 10⁵ Дж`,
+          `Алюминий плавится при температуре 390 °C`,
+          `Для плавления 1 кг алюминия при температуре плавления требуется 3,9 · 10⁵ Дж`,
+          `При полном сгорании 1 кг алюминия выделяется 3,9 · 10⁵ Дж`
+        ],
+        correct: 2,
+        explanation: `Удельная теплота плавления λ показывает количество теплоты, необходимое для превращения 1 кг кристаллического вещества в жидкость при температуре плавления.`
+      },
+      {
+        id: `cq4`,
+        stem: `Какие из перечисленных веществ НЕ имеют определённой температуры плавления (при нагревании постепенно размягчаются)?`,
+        options: [
+          `Лёд и олово`,
+          `Стекло и сургуч`,
+          `Свинец и железо`,
+          `Поваренная соль и медь`
+        ],
+        correct: 1,
+        explanation: `Стекло и сургуч (а также смола, пластик, воск) — аморфные тела. У них отсутствует строгая кристаллическая решётка, поэтому они не имеют фиксированной температуры плавления.`
+      },
+      {
+        id: `cq5`,
+        stem: `Свинцовую пулю массой 10 г, взятую при температуре 327 °C, расплавили. Какое количество теплоты потребовалось для этого? (λ_свинца = 25 000 Дж/кг)`,
+        options: [
+          `250 Дж`,
+          `2500 Дж`,
+          `25 Дж`,
+          `250 000 Дж`
+        ],
+        correct: 0,
+        explanation: `Переводим массу в СИ: m = 10 г = 0,01 кг. Температура уже равна температуре плавления свинца (327 °C). Q = λ · m = 25 000 · 0,01 = 250 Дж.`
+      },
+      {
+        id: `cq6`,
+        stem: `Какой физический процесс возможен в алюминиевом сосуде: можно ли в нём расплавить железо (t_пл = 1539 °C) или олово (t_пл = 232 °C)?`,
+        options: [
+          `Можно расплавить и железо, и олово`,
+          `Нельзя расплавить ни железо, ни олово`,
+          `Можно расплавить только олово, так как алюминий плавится при 660 °C`,
+          `Можно расплавить только железо`
+        ],
+        correct: 2,
+        explanation: `Температура плавления олова (232 °C) ниже температуры плавления алюминия (660 °C), поэтому алюминиевый тигель не расплавится. А железо (1539 °C) в нём расплавить нельзя.`
+      }
+    ];
+
+    const OPEN_QUESTIONS = [
+      {
+        id: `oq1`,
+        type: `number`,
+        unit: `°C`,
+        hasGraph: true,
+        stem: `Образец некоторого вещества сначала нагревали, а затем охлаждали (см. график ниже). Первоначально он находился в твёрдом состоянии. Определите температуру плавления этого образца.`,
+        accepted: [60],
+        tolerance: 0.5,
+        placeholder: `Например: 60`,
+        explanation: `На графике видны два горизонтальных участка при температуре 60 °C: первый — плавление при нагревании (τ от 100 до 150 с), второй — кристаллизация при охлаждении (τ от 250 до 300 с). Температура плавления равна 60 °C.`
+      },
+      {
+        id: `oq2`,
+        type: `text`,
+        unit: ``,
+        hasGraph: false,
+        stem: `Как называется процесс перехода вещества из жидкого состояния в твёрдое кристаллическое? (Введите одно слово в именительном падеже.)`,
+        acceptedWords: [`отвердевание`, `кристаллизация`],
+        placeholder: `Введите термин`,
+        explanation: `Переход вещества из жидкого состояния в твёрдое называют отвердеванием или кристаллизацией.`
+      },
+      {
+        id: `oq3`,
+        type: `text`,
+        unit: ``,
+        hasGraph: false,
+        stem: `В комнату, температура воздуха в которой строго 0 °C, внесли открытый стакан со льдом, также взятым при 0 °C. Начнёт ли лёд таять? Ответьте «да» или «нет».`,
+        acceptedWords: [`нет`],
+        placeholder: `да или нет`,
+        explanation: `Нет. Для плавления льду при 0 °C нужно получать теплоту извне. Поскольку температура воздуха тоже 0 °C, теплообмен между воздухом и льдом не происходит.`
+      },
+      {
+        id: `oq4`,
+        type: `number`,
+        unit: `кДж/кг`,
+        hasGraph: false,
+        stem: `Какова удельная теплота плавления мороженого (в кДж/кг), если для затвердевания брикета массой 0,4 кг при температуре плавления потребовалось отвести от него количество теплоты 140 000 Дж?`,
+        accepted: [350],
+        tolerance: 1,
+        placeholder: `Ответ в кДж/кг`,
+        explanation: `По формуле λ = Q / m: λ = 140 000 Дж / 0,4 кг = 350 000 Дж/кг = 350 кДж/кг (задача из демонстрационного варианта ВПР).`
+      }
+    ];
+
+    const WORKED_EXAMPLES = [
+      {
+        id: `ex1`,
+        title: `Пример 1 (Базовый). Плавление металла при температуре плавления`,
+        condition: `Какое количество теплоты необходимо для плавления куска свинца массой 2,5 кг, взятого при температуре плавления 327 °C? (λ_свинца = 0,25 · 10⁵ Дж/кг)`,
+        dano: `m = 2,5 кг\nt = t_пл = 327 °C\nλ = 0,25 · 10⁵ Дж/кг = 25 000 Дж/кг\n————————————\nНайти: Q — ?`,
+        steps: [
+          {
+            label: `Шаг 1. Анализ условия`,
+            text: `Свинец уже нагрет до температуры плавления (327 °C). Значит, энергия на предварительное нагревание не нужна — рассчитываем только количество теплоты на сам фазовый переход.`
+          },
+          {
+            label: `Шаг 2. Выбор формулы`,
+            text: `Для расчёта количества теплоты при плавлении используем формулу: \\(Q = \\lambda \\cdot m\\).`
+          },
+          {
+            label: `Шаг 3. Вычисления и ответ`,
+            text: `\\(Q = 25\\,000\\text{ Дж/кг} \\cdot 2{,}5\\text{ кг} = 62\\,500\\text{ Дж} = 62{,}5\\text{ кДж}\\). Ответ: 62,5 кДж.`
+          }
+        ]
+      },
+      {
+        id: `ex2`,
+        title: `Пример 2 (Средний, с. 49–51 сборника Гайковой). Нагревание и плавление льда`,
+        condition: `Какое количество теплоты потребуется, чтобы превратить в воду кусок льда массой 500 г, взятый при температуре −10 °C? (c_льда = 2100 Дж/(кг·°C), t_пл = 0 °C, λ_льда = 3,4 · 10⁵ Дж/кг)`,
+        dano: `m = 500 г = 0,5 кг\nt₁ = −10 °C\nt_пл = 0 °C\nc_льда = 2100 Дж/(кг·°C)\nλ = 3,4 · 10⁵ Дж/кг\n————————————\nНайти: Q — ?`,
+        steps: [
+          {
+            label: `Шаг 1. Перевод в СИ и разбиение на этапы`,
+            text: `Переводим массу: 500 г = 0,5 кг. Лёд нельзя расплавить сразу при −10 °C: сначала его нужно нагреть до 0 °C (Q₁), а затем расплавить при 0 °C (Q₂). Общее количество теплоты: \\(Q = Q_1 + Q_2\\).`
+          },
+          {
+            label: `Шаг 2. Нагревание льда до 0 °C`,
+            text: `\\(Q_1 = c_{\\text{льда}} m (t_{\\text{пл}} - t_1) = 2100 \\cdot 0{,}5 \\cdot (0 - (-10)) = 10\\,500\\text{ Дж}\\).`
+          },
+          {
+            label: `Шаг 3. Плавление льда и итог`,
+            text: `\\(Q_2 = \\lambda m = 3{,}4 \\cdot 10^5 \\cdot 0{,}5 = 170\\,000\\text{ Дж}\\). Суммируем: \\(Q = 10\\,500 + 170\\,000 = 180\\,500\\text{ Дж} = 180{,}5\\text{ кДж}\\). Ответ: 180,5 кДж.`
+          }
+        ]
+      },
+      {
+        id: `ex3`,
+        title: `Пример 3 (Повышенный, формат ВПР). Время плавления при заданной мощности и КПД`,
+        condition: `Починенным паяльником мощностью P = 14,4 Вт расплавляют кусочек олова массой m = 10 г с начальной температурой t_н = 20 °C. Рассчитайте время плавления олова, если только η = 50 % мощности паяльника передаётся олову (c = 220 Дж/(кг·°C), t_пл = 232 °C, λ = 59 кДж/кг).`,
+        dano: `P = 14,4 Вт\nm = 10 г = 0,01 кг\nt_н = 20 °C, t_пл = 232 °C\nc = 220 Дж/(кг·°C)\nλ = 59 кДж/кг = 59 000 Дж/кг\nη = 50 % = 0,5\n————————————\nНайти: τ — ?`,
+        steps: [
+          {
+            label: `Шаг 1. Потребная теплота для олова`,
+            text: `Олово нужно нагреть от 20 °C до 232 °C и расплавить: \\(Q = c m (t_{\\text{пл}} - t_{\\text{н}}) + \\lambda m\\).`
+          },
+          {
+            label: `Шаг 2. Расчёт Q`,
+            text: `\\(Q = 220 \\cdot 0{,}01 \\cdot (232 - 20) + 59\\,000 \\cdot 0{,}01 = 466{,}4 + 590 = 1056{,}4\\text{ Дж}\\).`
+          },
+          {
+            label: `Шаг 3. Уравнение теплового баланса с КПД и время`,
+            text: `Полезная энергия от паяльника за время τ равна \\(\\eta P \\tau = Q\\). Отсюда \\(\\tau = \\dfrac{Q}{\\eta P} = \\dfrac{1056{,}4}{0{,}5 \\cdot 14{,}4} = \\dfrac{1056{,}4}{7{,}2} \\approx 147\\text{ с}\\). Ответ: ≈ 147 с.`
+          }
+        ]
+      }
+    ];
+
+    const PRACTICE_TASKS = [
+      {
+        id: `pt1`,
+        level: `Базовый`,
+        stem: `Какое количество теплоты выделится при полной кристаллизации 4 кг расплавленного олова, взятого при температуре отвердевания 232 °C? (λ_олова = 59 000 Дж/кг). Ответ выразите в килоджоулях (кДж).`,
+        unit: `кДж`,
+        answer: 236,
+        tolerance: 0.5,
+        hint: `При кристаллизации выделяется количество теплоты Q = λ · m. Не забудьте перевести джоули в килоджоули (разделить на 1000).`,
+        solution: `Дано: m = 4 кг, λ = 59 000 Дж/кг.\nQ = λ · m = 59 000 · 4 = 236 000 Дж = 236 кДж.`
+      },
+      {
+        id: `pt2`,
+        level: `Базовый`,
+        stem: `Какую массу льда, взятого при температуре 0 °C, можно полностью расплавить, сообщив ему 680 кДж теплоты? (λ_льда = 3,4 · 10⁵ Дж/кг).`,
+        unit: `кг`,
+        answer: 2,
+        tolerance: 0.05,
+        hint: `Выразите массу из формулы Q = λ · m: m = Q / λ. Переведите 680 кДж в джоули (680 000 Дж).`,
+        solution: `Дано: Q = 680 кДж = 680 000 Дж, λ = 340 000 Дж/кг.\nm = Q / λ = 680 000 / 340 000 = 2 кг.`
+      },
+      {
+        id: `pt3`,
+        level: `Средний`,
+        stem: `Сколько граммов меди, взятой при температуре плавления 1085 °C, можно расплавить, затратив 42 кДж теплоты? (λ_меди = 2,1 · 10⁵ Дж/кг).`,
+        unit: `г`,
+        answer: 200,
+        tolerance: 1,
+        hint: `Найдите массу в килограммах по формуле m = Q / λ, затем умножьте результат на 1000, чтобы получить граммы.`,
+        solution: `Дано: Q = 42 кДж = 42 000 Дж, λ = 210 000 Дж/кг.\nm = 42 000 / 210 000 = 0,2 кг = 200 г.`
+      },
+      {
+        id: `pt4`,
+        level: `Средний`,
+        stem: `Какое количество теплоты выделится при кристаллизации 2 кг расплавленного алюминия при температуре плавления 660 °C и последующем охлаждении полученной отливки до 60 °C? (λ_Al = 3,9 · 10⁵ Дж/кг, c_Al = 920 Дж/(кг·°C)). Ответ выразите в килоджоулях (кДж).`,
+        unit: `кДж`,
+        answer: 1884,
+        tolerance: 2,
+        hint: `Сложите две энергии: Q₁ = λ · m (при кристаллизации) и Q₂ = c · m · (660 − 60) (при охлаждении твёрдого алюминия).`,
+        solution: `Q₁ = 390 000 · 2 = 780 000 Дж = 780 кДж.\nQ₂ = 920 · 2 · (660 − 60) = 1 104 000 Дж = 1104 кДж.\nQ = Q₁ + Q₂ = 780 + 1104 = 1884 кДж.`
+      },
+      {
+        id: `pt5`,
+        level: `Средний (ВПР)`,
+        stem: `В закрытой кружке на электроплитке постоянной мощности 0,1 кг льда при 0 °C расплавились за 510 с, а такая же масса воды нагрелась на 10 °C за 70 с (c_воды = 4200 Дж/(кг·°C)). Определите по этим данным удельную теплоту плавления льда (в кДж/кг). Потери тепла не учитывать.`,
+        unit: `кДж/кг`,
+        answer: 306,
+        tolerance: 1,
+        hint: `Найдите мощность плитки по нагреванию воды: P = c · m · Δt / τ₁. Затем найдите теплоту, переданную льду за τ₂ = 510 с: Q₂ = P · τ₂, и разделите на m.`,
+        solution: `Q_воды = 4200 · 0,1 · 10 = 4200 Дж.\nP = 4200 Дж / 70 с = 60 Вт.\nQ_льда = 60 Вт · 510 с = 30 600 Дж.\nλ = 30 600 Дж / 0,1 кг = 306 000 Дж/кг = 306 кДж/кг.`
+      },
+      {
+        id: `pt6`,
+        level: `Повышенный`,
+        stem: `Какую массу льда при температуре 0 °C можно расплавить за счёт теплоты, выделившейся при полном сгорании 200 г древесного угля (q = 3,4 · 10⁷ Дж/кг), если на плавление льда пошло 40 % выделившейся теплоты? (λ_льда = 3,4 · 10⁵ Дж/кг).`,
+        unit: `кг`,
+        answer: 8,
+        tolerance: 0.1,
+        hint: `1) Q_сгор = q · m_угля (переведите 200 г = 0,2 кг). 2) Полезная теплота Q_пол = 0,4 · Q_сгор. 3) m_льда = Q_пол / λ.`,
+        solution: `Q_сгор = 3,4 · 10⁷ · 0,2 = 6,8 · 10⁶ Дж.\nQ_пол = 0,4 · 6,8 · 10⁶ = 2,72 · 10⁶ Дж.\nm_льда = 2,72 · 10⁶ / (3,4 · 10⁵) = 8 кг.`
+      }
+    ];
+
+    // =========================================================================
+    // STATE MANAGEMENT
+    // =========================================================================
+
+    const DEFAULT_STATE = {
+      substance: `ice`,
+      tau: 8,
+      calcSubstance: `ice`,
+      calcMass: 2,
+      closedAnswers: {},
+      openInputs: {},
+      openChecked: {},
+      exampleRevealed: { ex1: 1, ex2: 1, ex3: 1 },
+      practiceInputs: {},
+      practiceChecked: {},
+      practiceHints: {},
+      practiceSolutions: {}
+    };
+
+    let appState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+
+    async function persistState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+          await window.notebookAppApi.setAppState(appState);
+        }
+      } catch (err) {
+        // Non-fatal in preview
+      }
+    }
+
+    function normalizeNumberInput(raw) {
+      if (raw === null || raw === undefined) return NaN;
+      const cleaned = String(raw).trim().replace(/\s+/g, ``).replace(`,`, `.`);
+      if (cleaned === ``) return NaN;
+      return Number(cleaned);
+    }
+
+    function normalizeTextInput(raw) {
+      if (!raw) return ``;
+      return String(raw).trim().toLowerCase().replace(/ё/g, `е`).replace(/[.!?,;:]/g, ``);
+    }
+
+    function formatSpaceNumber(num) {
+      return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ` `);
+    }
+
+    // =========================================================================
+    // SECTION 1: INTERACTIVE GRAPH, LATTICE & CALCULATOR
+    // =========================================================================
+
+    function getStageAtTau(tau) {
+      if (tau < 4) return `AB`;
+      if (tau <= 10) return `BC`;
+      if (tau < 13) return `CD`;
+      if (tau < 16) return `DE`;
+      if (tau <= 21) return `EF`;
+      return `FK`;
+    }
+
+    function interpolateTemp(points, tau) {
+      for (let i = 0; i < points.length - 1; i++) {
+        const [t0, y0] = points[i];
+        const [t1, y1] = points[i + 1];
+        if (tau >= t0 && tau <= t1) {
+          const frac = (t1 === t0) ? 0 : (tau - t0) / (t1 - t0);
+          return y0 + frac * (y1 - y0);
+        }
+      }
+      return points[points.length - 1][1];
+    }
+
+    function renderPhaseGraph() {
+      const svg = document.getElementById(`phase-svg`);
+      if (!svg) return;
+      const profile = GRAPH_PROFILES[appState.substance] || GRAPH_PROFILES.ice;
+      const tau = Number(appState.tau);
+      const currentTemp = interpolateTemp(profile.points, tau);
+      const activeStage = getStageAtTau(tau);
+
+      const titleEl = document.getElementById(`graph-title`);
+      const subEl = document.getElementById(`graph-subtitle`);
+      if (titleEl) titleEl.textContent = `Нагревание, плавление, охлаждение и отвердевание: ${profile.name}`;
+      if (subEl) subEl.textContent = `Температура t (°C) в зависимости от времени τ (мин); t_пл = ${profile.tMelt} °C`;
+
+      const W = 640;
+      const H = 310;
+      const padL = 52;
+      const padR = 24;
+      const padT = 26;
+      const padB = 42;
+      const plotW = W - padL - padR;
+      const plotH = H - padT - padB;
+
+      function xOf(tVal) {
+        return padL + (tVal / 24) * plotW;
+      }
+      function yOf(tempVal) {
+        return padT + ((profile.yMax - tempVal) / (profile.yMax - profile.yMin)) * plotH;
+      }
+
+      let html = ``;
+
+      // Gridlines & Y ticks
+      profile.yTicks.forEach(tick => {
+        const y = yOf(tick).toFixed(1);
+        const isMeltLine = (tick === profile.tMelt);
+        const isZeroLine = (tick === 0 && profile.yMin < 0);
+        html += `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" class="${isZeroLine ? `baseline` : `gridline`}" />`;
+        html += `<text x="${padL - 8}" y="${Number(y) + 4}" text-anchor="end" class="axis-tick" ${isMeltLine ? `style="fill: var(--tertiary); font-weight: 700;"` : ``}>${tick}</text>`;
+      });
+
+      // Baseline at bottom
+      html += `<line x1="${padL}" y1="${H - padB}" x2="${W - padR}" y2="${H - padB}" class="baseline" />`;
+
+      // X ticks
+      for (let t = 0; t <= 24; t += 4) {
+        const x = xOf(t).toFixed(1);
+        html += `<line x1="${x}" y1="${H - padB}" x2="${x}" y2="${H - padB + 5}" class="baseline" />`;
+        html += `<text x="${x}" y="${H - padB + 18}" text-anchor="middle" class="axis-tick">${t}</text>`;
+      }
+
+      // Axis unit labels
+      html += `<text x="${padL - 8}" y="${padT - 10}" text-anchor="end" class="axis-tick">t, °C</text>`;
+      html += `<text x="${W - padR}" y="${H - 8}" text-anchor="end" class="axis-tick">τ, мин</text>`;
+
+      // Segments with figure color hierarchy
+      const pts = profile.points;
+      const segDefs = [
+        { name: `AB`, i0: 0, i1: 1, cls: `series-story` },
+        { name: `BC`, i0: 1, i1: 2, cls: `series-story` },
+        { name: `CD`, i0: 2, i1: 3, cls: `series-neutral` },
+        { name: `DE`, i0: 3, i1: 4, cls: `series-compare` },
+        { name: `EF`, i0: 4, i1: 5, cls: `series-compare` },
+        { name: `FK`, i0: 5, i1: 6, cls: `series-neutral` }
+      ];
+
+      // Faint context full path first
+      const fullPath = pts.map((p, idx) => `${idx === 0 ? `M` : `L`} ${xOf(p[0]).toFixed(1)} ${yOf(p[1]).toFixed(1)}`).join(` `);
+      html += `<path d="${fullPath}" class="series-context" />`;
+
+      // Colored segments
+      segDefs.forEach(seg => {
+        const p0 = pts[seg.i0];
+        const p1 = pts[seg.i1];
+        const isCurrent = (seg.name === activeStage);
+        const opacity = isCurrent ? `1` : `0.45`;
+        html += `<line x1="${xOf(p0[0]).toFixed(1)}" y1="${yOf(p0[1]).toFixed(1)}" x2="${xOf(p1[0]).toFixed(1)}" y2="${yOf(p1[1]).toFixed(1)}" class="${seg.cls}" style="opacity: ${opacity};" />`;
+      });
+
+      // Direct vertex & plateau labels (Figure style: direct labeling on plot)
+      const labels = [
+        { txt: `A`, p: pts[0], dx: -10, dy: 14, cls: `label-ink` },
+        { txt: `B`, p: pts[1], dx: -4, dy: -10, cls: `label-story` },
+        { txt: `C`, p: pts[2], dx: 4, dy: -10, cls: `label-story` },
+        { txt: `Плавление (BC)`, mid: [pts[1], pts[2]], dx: 0, dy: 16, cls: `label-story` },
+        { txt: `D`, p: pts[3], dx: 0, dy: -10, cls: `label-ink` },
+        { txt: `E`, p: pts[4], dx: -4, dy: -10, cls: `label-compare` },
+        { txt: `F`, p: pts[5], dx: 4, dy: -10, cls: `label-compare` },
+        { txt: `Отвердевание (EF)`, mid: [pts[4], pts[5]], dx: 0, dy: 16, cls: `label-compare` },
+        { txt: `K`, p: pts[6], dx: 8, dy: 12, cls: `label-ink` }
+      ];
+
+      labels.forEach(lb => {
+        const lx = lb.mid ? (xOf(lb.mid[0][0]) + xOf(lb.mid[1][0])) / 2 + lb.dx : xOf(lb.p[0]) + lb.dx;
+        const ly = lb.mid ? yOf(lb.mid[0][1]) + lb.dy : yOf(lb.p[1]) + lb.dy;
+        html += `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="middle" class="${lb.cls}">${lb.txt}</text>`;
+      });
+
+      // Interactive cursor line & point
+      const cx = xOf(tau).toFixed(1);
+      const cy = yOf(currentTemp).toFixed(1);
+      html += `<line x1="${cx}" y1="${padT}" x2="${cx}" y2="${H - padB}" class="cursor-line" />`;
+      html += `<circle cx="${cx}" cy="${cy}" r="5.5" class="${activeStage === `DE` || activeStage === `EF` ? `dot-compare` : `dot-story`}" />`;
+      html += `<text x="${Number(cx) > W - 110 ? Number(cx) - 10 : Number(cx) + 10}" y="${padT + 12}" text-anchor="${Number(cx) > W - 110 ? `end` : `start`}" class="label-ink">${currentTemp.toFixed(0)} °C</text>`;
+
+      svg.innerHTML = html;
+
+      // Update inspector text & lattice
+      renderInspector(activeStage, tau, currentTemp, profile.tMelt);
+    }
+
+    function renderLatticeSvg(phase, tau) {
+      const svg = document.getElementById(`lattice-svg`);
+      if (!svg) return;
+
+      // Compute progress within melting/freezing
+      let meltFrac = 0;
+      if (phase === `solid`) meltFrac = 0;
+      else if (phase === `liquid`) meltFrac = 1;
+      else if (phase === `melting`) meltFrac = Math.min(1, Math.max(0, (tau - 4) / 6));
+      else if (phase === `freezing`) meltFrac = Math.min(1, Math.max(0, 1 - (tau - 16) / 5));
+
+      const cols = 6;
+      const rows = 3;
+      const startX = 48;
+      const startY = 26;
+      const stepX = 36;
+      const stepY = 34;
+
+      let html = ``;
+      // Deterministic pseudo-random offsets for melted particles
+      const offsets = [
+        [-7, -5], [9, 6], [-8, 8], [10, -7], [5, 9], [-11, -3],
+        [8, -8], [-6, 7], [12, 4], [-9, -6], [7, 8], [-5, -9],
+        [10, 5], [-10, 4], [6, -10], [-7, 9], [11, -4], [-8, -7]
+      ];
+
+      // Draw bonds first if mostly solid
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const idx = r * cols + c;
+          const rowDisorder = (r + c * 0.25) / (rows + 1);
+          const isMelted = meltFrac > rowDisorder;
+          if (!isMelted) {
+            const x = startX + c * stepX;
+            const y = startY + r * stepY;
+            if (c < cols - 1) {
+              html += `<line x1="${x}" y1="${y}" x2="${x + stepX}" y2="${y}" class="${meltFrac > 0.1 ? `bond-broken` : `bond-line`}" />`;
+            }
+            if (r < rows - 1) {
+              html += `<line x1="${x}" y1="${y}" x2="${x}" y2="${y + stepY}" class="${meltFrac > 0.1 ? `bond-broken` : `bond-line`}" />`;
+            }
+          }
+        }
+      }
+
+      // Draw particles
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const idx = r * cols + c;
+          const rowDisorder = (r + c * 0.25) / (rows + 1);
+          const isMelted = meltFrac > rowDisorder;
+          const off = offsets[idx % offsets.length];
+          const x = startX + c * stepX + (isMelted ? off[0] : 0);
+          const y = startY + r * stepY + (isMelted ? off[1] : 0);
+          html += `<circle cx="${x}" cy="${y}" r="6.5" class="${isMelted ? `atom-melt` : `atom-solid`}" />`;
+        }
+      }
+
+      const caption = phase === `solid`
+        ? `Кристаллическая решётка (упорядоченное строение)`
+        : phase === `liquid`
+        ? `Жидкость (порядок разрушен, свободное движение)`
+        : `Две фазы: разрушение / сборка решётки`;
+      html += `<text x="140" y="114" text-anchor="middle" class="axis-tick">${caption}</text>`;
+
+      svg.innerHTML = html;
+    }
+
+    function renderInspector(stage, tau, temp, tMelt) {
+      const info = STAGE_INFO[stage];
+      if (!info) return;
+
+      const tauReadout = document.getElementById(`tau-readout`);
+      const stageCode = document.getElementById(`stage-code`);
+      const stageTemp = document.getElementById(`stage-temp`);
+      const stageDesc = document.getElementById(`stage-desc`);
+      const stageFormula = document.getElementById(`stage-formula`);
+
+      if (tauReadout) tauReadout.textContent = `${tau} мин`;
+      if (stageCode) stageCode.textContent = info.code;
+      if (stageTemp) {
+        const constNote = (stage === `BC` || stage === `EF`) ? ` (постоянна, t = t_пл)` : ``;
+        stageTemp.textContent = `t = ${temp.toFixed(0)} °C${constNote}`;
+      }
+      if (stageDesc) stageDesc.textContent = info.desc;
+      if (stageFormula) stageFormula.textContent = `Формула участка: ${info.formula}`;
+
+      // Highlight stage buttons
+      Object.keys(STAGE_INFO).forEach(key => {
+        const btn = document.getElementById(`seg-btn-${key}`);
+        if (btn) btn.classList.toggle(`is-active`, key === stage);
+      });
+
+      renderLatticeSvg(info.phase, tau);
+    }
+
+    function selectGraphSubstance(subId) {
+      appState.substance = subId;
+      [`ice`, `tin`, `lead`].forEach(id => {
+        const btn = document.getElementById(`sub-btn-${id}`);
+        if (btn) btn.classList.toggle(`is-active`, id === subId);
+      });
+      renderPhaseGraph();
+      persistState();
+    }
+
+    function setGraphTime(val) {
+      appState.tau = Number(val);
+      renderPhaseGraph();
+      persistState();
+    }
+
+    function jumpToStage(stageKey) {
+      const info = STAGE_INFO[stageKey];
+      if (!info) return;
+      appState.tau = info.midTau;
+      const slider = document.getElementById(`tau-slider`);
+      if (slider) slider.value = info.midTau;
+      renderPhaseGraph();
+      persistState();
+    }
+
+    function renderConstantsTable() {
+      const tbody = document.getElementById(`constants-tbody`);
+      if (!tbody) return;
+      tbody.innerHTML = SUBSTANCES.map(s => `
+        <tr id="row-sub-${s.id}" class="${s.id === appState.calcSubstance ? `is-highlighted` : ``}">
+          <td>${s.name}</td>
+          <td class="num">${s.tMelt}</td>
+          <td class="num">${s.lambdaSci} (${formatSpaceNumber(s.lambda)})</td>
+          <td class="num">${s.c}</td>
+        </tr>
+      `).join(``);
+    }
+
+    function updateMeltingCalc() {
+      const sel = document.getElementById(`calc-substance`);
+      const massInp = document.getElementById(`calc-mass`);
+      const qOut = document.getElementById(`calc-result-q`);
+      const rawOut = document.getElementById(`calc-result-raw`);
+      if (!sel || !massInp || !qOut || !rawOut) return;
+
+      const subId = sel.value;
+      const mass = Math.max(0, normalizeNumberInput(massInp.value) || 0);
+      appState.calcSubstance = subId;
+      appState.calcMass = mass;
+
+      const sub = SUBSTANCES.find(x => x.id === subId) || SUBSTANCES[0];
+      const qJoules = sub.lambda * mass;
+      const qKilo = qJoules / 1000;
+
+      if (qKilo >= 1000) {
+        qOut.textContent = `${(qKilo / 1000).toFixed(2).replace(`.`, `,`)} МДж`;
+      } else {
+        qOut.textContent = `${qKilo.toFixed(1).replace(`.`, `,`)} кДж`;
+      }
+      rawOut.textContent = `${formatSpaceNumber(qJoules)} Дж (λ = ${sub.lambdaSci} Дж/кг)`;
+
+      SUBSTANCES.forEach(s => {
+        const row = document.getElementById(`row-sub-${s.id}`);
+        if (row) row.classList.toggle(`is-highlighted`, s.id === subId);
+      });
+
+      persistState();
+    }
+
+    // =========================================================================
+    // SECTION 2: QUIZ (CLOSED + OPEN)
+    // =========================================================================
+
+    function renderClosedQuiz() {
+      const container = document.getElementById(`closed-quiz-container`);
+      if (!container) return;
+      const letters = [`А`, `Б`, `В`, `Г`];
+
+      container.innerHTML = CLOSED_QUESTIONS.map((q, idx) => {
+        const userAns = appState.closedAnswers[q.id];
+        const isAnswered = userAns !== undefined;
+        const isCorrect = isAnswered && userAns === q.correct;
+
+        const badge = isAnswered
+          ? (isCorrect ? `<span class="q-badge q-badge--ok">Верно</span>` : `<span class="q-badge q-badge--err">Ошибка</span>`)
+          : `<span class="q-badge">Не выполнено</span>`;
+
+        const optionsHtml = q.options.map((opt, optIdx) => {
+          let cls = `option-btn`;
+          if (isAnswered) {
+            if (optIdx === q.correct) cls += ` is-correct`;
+            else if (optIdx === userAns) cls += ` is-wrong`;
+          }
+          return `
+            <button type="button" class="${cls}" onclick="answerClosedQuestion('${q.id}', ${optIdx})">
+              <span class="option-letter">${letters[optIdx]}</span>
+              <span>${opt}</span>
+            </button>
+          `;
+        }).join(``);
+
+        const fb = isAnswered
+          ? `<div class="feedback-box ${isCorrect ? `is-ok` : `is-err`}"><strong>${isCorrect ? `Верно.` : `Неверно.`}</strong> ${q.explanation}</div>`
+          : ``;
+
+        return `
+          <article class="question-item">
+            <div class="question-meta">
+              <span class="q-num">Вопрос А${idx + 1}</span>
+              ${badge}
+            </div>
+            <p class="q-stem">${q.stem}</p>
+            <div class="options-grid">${optionsHtml}</div>
+            ${fb}
+          </article>
+        `;
+      }).join(``);
+    }
+
+    function answerClosedQuestion(qId, optIdx) {
+      appState.closedAnswers[qId] = optIdx;
+      renderClosedQuiz();
+      updateProgressCounter();
+      persistState();
+    }
+
+    function buildVprOpenGraphSvg() {
+      // Graph from VPR 2026 Task 8: t starts at 50, heats to 60 at tau=100, plateau 100..150, heats to 70 at tau=200, cools to 60 at tau=250, plateau 250..300, cools to 50 at tau=350
+      const W = 580;
+      const H = 220;
+      const padL = 48;
+      const padR = 24;
+      const padT = 20;
+      const padB = 34;
+      const plotW = W - padL - padR;
+      const plotH = H - padT - padB;
+      const xOf = tau => padL + (tau / 350) * plotW;
+      const yOf = temp => padT + ((75 - temp) / (75 - 45)) * plotH;
+
+      let html = ``;
+      [50, 55, 60, 65, 70].forEach(t => {
+        const y = yOf(t).toFixed(1);
+        html += `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" class="${t === 50 ? `baseline` : `gridline`}" />`;
+        html += `<text x="${padL - 8}" y="${Number(y) + 4}" text-anchor="end" class="axis-tick">${t}</text>`;
+      });
+      for (let tau = 0; tau <= 350; tau += 50) {
+        const x = xOf(tau).toFixed(1);
+        html += `<line x1="${x}" y1="${padT}" x2="${x}" y2="${H - padB}" class="gridline" />`;
+        html += `<text x="${x}" y="${H - padB + 16}" text-anchor="middle" class="axis-tick">${tau}</text>`;
+      }
+      html += `<text x="${padL - 8}" y="${padT - 6}" text-anchor="end" class="axis-tick">t, °C</text>`;
+      html += `<text x="${W - padR}" y="${H - 4}" text-anchor="end" class="axis-tick">τ, с</text>`;
+
+      const pts = [[0, 50], [100, 60], [150, 60], [200, 70], [250, 60], [300, 60], [350, 50]];
+      const pathD = pts.map((p, i) => `${i === 0 ? `M` : `L`} ${xOf(p[0]).toFixed(1)} ${yOf(p[1]).toFixed(1)}`).join(` `);
+      html += `<path d="${pathD}" class="series-story" />`;
+      pts.forEach(p => {
+        html += `<circle cx="${xOf(p[0]).toFixed(1)}" cy="${yOf(p[1]).toFixed(1)}" r="3.5" class="dot-story" />`;
+      });
+      return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="График зависимости температуры образца от времени из задания ВПР">${html}</svg>`;
+    }
+
+    function renderOpenQuiz() {
+      const container = document.getElementById(`open-quiz-container`);
+      if (!container) return;
+
+      container.innerHTML = OPEN_QUESTIONS.map((q, idx) => {
+        const savedVal = appState.openInputs[q.id] || ``;
+        const checked = appState.openChecked[q.id];
+        const isChecked = checked !== undefined;
+        const isCorrect = checked === true;
+
+        const badge = isChecked
+          ? (isCorrect ? `<span class="q-badge q-badge--ok">Верно</span>` : `<span class="q-badge q-badge--err">Проверьте</span>`)
+          : `<span class="q-badge">Ожидает ответа</span>`;
+
+        const graphHtml = q.hasGraph
+          ? `<div class="chart-block" style="max-width: 580px;"><div class="chart-svg-wrap" style="min-height: 190px;">${buildVprOpenGraphSvg()}</div></div>`
+          : ``;
+
+        const fb = isChecked
+          ? `<div class="feedback-box ${isCorrect ? `is-ok` : `is-err`}"><strong>${isCorrect ? `Верно.` : `Ответ требует уточнения.`}</strong> ${q.explanation}</div>`
+          : ``;
+
+        return `
+          <article class="question-item">
+            <div class="question-meta">
+              <span class="q-num">Вопрос Б${idx + 1}</span>
+              ${badge}
+            </div>
+            <p class="q-stem">${q.stem}</p>
+            ${graphHtml}
+            <div class="answer-row">
+              <div class="control-group" style="margin-bottom: 0; min-width: 220px;">
+                <label for="open-inp-${q.id}" class="field-label">Ваш ответ</label>
+                <div class="input-unit-wrap">
+                  <input type="text" id="open-inp-${q.id}" class="text-input ${q.type === `number` ? `mono-input` : ``}" value="${escapeHtmlAttr(savedVal)}" placeholder="${q.placeholder}" oninput="onOpenInputChange('${q.id}', this.value)">
+                  ${q.unit ? `<span class="unit-tag">${q.unit}</span>` : ``}
+                </div>
+              </div>
+              <button type="button" class="btn btn-sm" onclick="checkOpenQuestion('${q.id}')">Проверить ответ</button>
+            </div>
+            ${fb}
+          </article>
+        `;
+      }).join(``);
+    }
+
+    function escapeHtmlAttr(str) {
+      return String(str).replace(/&/g, `&amp;`).replace(/"/g, `&quot;`).replace(/</g, `&lt;`).replace(/>/g, `&gt;`);
+    }
+
+    function onOpenInputChange(qId, val) {
+      appState.openInputs[qId] = val;
+      persistState();
+    }
+
+    function checkOpenQuestion(qId) {
+      const q = OPEN_QUESTIONS.find(item => item.id === qId);
+      if (!q) return;
+      const inp = document.getElementById(`open-inp-${qId}`);
+      const raw = inp ? inp.value : (appState.openInputs[qId] || ``);
+      appState.openInputs[qId] = raw;
+
+      let ok = false;
+      if (q.type === `number`) {
+        const num = normalizeNumberInput(raw);
+        if (!Number.isNaN(num)) {
+          ok = q.accepted.some(ans => Math.abs(num - ans) <= q.tolerance);
+        }
+      } else {
+        const norm = normalizeTextInput(raw);
+        ok = q.acceptedWords.some(w => norm === w || norm.includes(w));
+      }
+
+      appState.openChecked[qId] = ok;
+      renderOpenQuiz();
+      updateProgressCounter();
+      persistState();
+    }
+
+    // =========================================================================
+    // SECTION 3: WORKED EXAMPLES
+    // =========================================================================
+
+    function renderWorkedExamples() {
+      const container = document.getElementById(`worked-examples-container`);
+      if (!container) return;
+
+      container.innerHTML = WORKED_EXAMPLES.map(ex => {
+        const revealedCount = appState.exampleRevealed[ex.id] || 1;
+        const stepsHtml = ex.steps.map((st, sIdx) => {
+          const isShown = sIdx < revealedCount;
+          if (!isShown) return ``;
+          return `
+            <div class="step-item is-revealed">
+              <div class="step-label">${st.label}</div>
+              <div>${st.text}</div>
+            </div>
+          `;
+        }).join(``);
+
+        const allShown = revealedCount >= ex.steps.length;
+
+        return `
+          <article class="example-card">
+            <h3>${ex.title}</h3>
+            <p>${ex.condition}</p>
+            <div class="example-grid">
+              <div class="dano-box">
+                <div class="dano-title">Дано и перевод в СИ</div>
+                <pre style="margin: 0; font-family: inherit; white-space: pre-wrap;">${ex.dano}</pre>
+              </div>
+              <div>
+                <div class="step-list">${stepsHtml}</div>
+                <div class="btn-row" style="margin-top: var(--space-md);">
+                  ${!allShown ? `<button type="button" class="btn btn-sm" onclick="revealExampleStep('${ex.id}')">Показать следующий шаг (${revealedCount}/${ex.steps.length})</button>` : ``}
+                  ${!allShown ? `<button type="button" class="btn btn-secondary btn-sm" onclick="revealAllExampleSteps('${ex.id}')">Показать всё решение</button>` : `<button type="button" class="btn btn-ghost btn-sm" onclick="collapseExampleSteps('${ex.id}')">Свернуть до шага 1</button>`}
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join(``);
+
+      triggerMathRender();
+    }
+
+    function revealExampleStep(exId) {
+      const ex = WORKED_EXAMPLES.find(e => e.id === exId);
+      if (!ex) return;
+      const cur = appState.exampleRevealed[exId] || 1;
+      appState.exampleRevealed[exId] = Math.min(ex.steps.length, cur + 1);
+      renderWorkedExamples();
+      persistState();
+    }
+
+    function revealAllExampleSteps(exId) {
+      const ex = WORKED_EXAMPLES.find(e => e.id === exId);
+      if (!ex) return;
+      appState.exampleRevealed[exId] = ex.steps.length;
+      renderWorkedExamples();
+      persistState();
+    }
+
+    function collapseExampleSteps(exId) {
+      appState.exampleRevealed[exId] = 1;
+      renderWorkedExamples();
+      persistState();
+    }
+
+    // =========================================================================
+    // SECTION 4: PRACTICE TASKS WITH VERIFICATION
+    // =========================================================================
+
+    function renderPracticeTasks() {
+      const container = document.getElementById(`practice-tasks-container`);
+      if (!container) return;
+
+      container.innerHTML = PRACTICE_TASKS.map((task, idx) => {
+        const val = appState.practiceInputs[task.id] || ``;
+        const checked = appState.practiceChecked[task.id];
+        const isChecked = checked !== undefined;
+        const isCorrect = checked === true;
+        const showHint = !!appState.practiceHints[task.id];
+        const showSol = !!appState.practiceSolutions[task.id];
+
+        const statusBadge = isChecked
+          ? (isCorrect ? `<span class="q-badge q-badge--ok">Решено верно</span>` : `<span class="q-badge q-badge--err">Неверный ответ</span>`)
+          : `<span class="q-badge">${task.level}</span>`;
+
+        const fb = isChecked
+          ? `<div class="feedback-box ${isCorrect ? `is-ok` : `is-err`}">${isCorrect ? `Отлично! Ответ ${task.answer} ${task.unit} верный.` : `Полученное значение не совпадает с ответом. Воспользуйтесь подсказкой или проверьте перевод единиц в СИ.`}</div>`
+          : ``;
+
+        const hintHtml = showHint
+          ? `<div class="practice-hint"><strong>Подсказка:</strong> ${task.hint}</div>`
+          : ``;
+
+        const solHtml = showSol
+          ? `<div class="practice-solution"><strong>Подробное решение:</strong><pre style="margin: var(--space-xs) 0 0; font-family: var(--font-label); font-size: 0.84rem; white-space: pre-wrap;">${task.solution}</pre></div>`
+          : ``;
+
+        return `
+          <article class="practice-card">
+            <div>
+              <div class="question-meta">
+                <span class="q-num">Задача ${idx + 1} · ${task.level}</span>
+                ${statusBadge}
+              </div>
+              <p style="margin-bottom: var(--space-md);">${task.stem}</p>
+            </div>
+            <div>
+              <div class="answer-row">
+                <div class="control-group" style="margin-bottom: 0; flex: 1; min-width: 160px;">
+                  <label for="pt-inp-${task.id}" class="field-label">Ответ (${task.unit})</label>
+                  <div class="input-unit-wrap">
+                    <input type="text" id="pt-inp-${task.id}" class="text-input mono-input" style="width: 100%;" value="${escapeHtmlAttr(val)}" placeholder="Число" oninput="onPracticeInputChange('${task.id}', this.value)">
+                    <span class="unit-tag">${task.unit}</span>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-sm" onclick="checkPracticeTask('${task.id}')">Проверить</button>
+              </div>
+              <div class="btn-row">
+                <button type="button" class="btn btn-ghost btn-sm" onclick="togglePracticeHint('${task.id}')">${showHint ? `Скрыть подсказку` : `Подсказка`}</button>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="togglePracticeSolution('${task.id}')">${showSol ? `Скрыть решение` : `Показать решение`}</button>
+              </div>
+              ${fb}
+              ${hintHtml}
+              ${solHtml}
+            </div>
+          </article>
+        `;
+      }).join(``);
+    }
+
+    function onPracticeInputChange(taskId, val) {
+      appState.practiceInputs[taskId] = val;
+      persistState();
+    }
+
+    function checkPracticeTask(taskId) {
+      const task = PRACTICE_TASKS.find(t => t.id === taskId);
+      if (!task) return;
+      const inp = document.getElementById(`pt-inp-${taskId}`);
+      const raw = inp ? inp.value : (appState.practiceInputs[taskId] || ``);
+      appState.practiceInputs[taskId] = raw;
+
+      const num = normalizeNumberInput(raw);
+      const ok = !Number.isNaN(num) && Math.abs(num - task.answer) <= task.tolerance;
+      appState.practiceChecked[taskId] = ok;
+
+      renderPracticeTasks();
+      updateProgressCounter();
+      persistState();
+    }
+
+    function togglePracticeHint(taskId) {
+      appState.practiceHints[taskId] = !appState.practiceHints[taskId];
+      renderPracticeTasks();
+      persistState();
+    }
+
+    function togglePracticeSolution(taskId) {
+      appState.practiceSolutions[taskId] = !appState.practiceSolutions[taskId];
+      renderPracticeTasks();
+      persistState();
+    }
+
+    // =========================================================================
+    // PROGRESS & RESET
+    // =========================================================================
+
+    function updateProgressCounter() {
+      const total = CLOSED_QUESTIONS.length + OPEN_QUESTIONS.length + PRACTICE_TASKS.length; // 6 + 4 + 6 = 16
+      let solved = 0;
+
+      CLOSED_QUESTIONS.forEach(q => {
+        if (appState.closedAnswers[q.id] === q.correct) solved++;
+      });
+      OPEN_QUESTIONS.forEach(q => {
+        if (appState.openChecked[q.id] === true) solved++;
+      });
+      PRACTICE_TASKS.forEach(t => {
+        if (appState.practiceChecked[t.id] === true) solved++;
+      });
+
+      const badge = document.getElementById(`progress-badge`);
+      const footerScore = document.getElementById(`footer-score`);
+      if (badge) badge.textContent = `Выполнено верно: ${solved} / ${total}`;
+      if (footerScore) footerScore.textContent = `Итог: ${solved} / ${total}`;
+    }
+
+    function handleResetAll(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Нажмите ещё раз для сброса`;
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.textContent = `Сбросить прогресс`;
+      appState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+      syncAllUI();
+      persistState();
+    }
+
+    function triggerMathRender() {
+      if (typeof renderMathInElement === `function`) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: `\\(`, right: `\\)`, display: false },
+            { left: `\\[`, right: `\\]`, display: true }
+          ],
+          throwOnError: false
+        });
+      }
+    }
+
+    function syncAllUI() {
+      const slider = document.getElementById(`tau-slider`);
+      if (slider) slider.value = appState.tau;
+
+      [`ice`, `tin`, `lead`].forEach(id => {
+        const btn = document.getElementById(`sub-btn-${id}`);
+        if (btn) btn.classList.toggle(`is-active`, id === appState.substance);
+      });
+
+      const calcSub = document.getElementById(`calc-substance`);
+      const calcMass = document.getElementById(`calc-mass`);
+      if (calcSub) calcSub.value = appState.calcSubstance || `ice`;
+      if (calcMass) calcMass.value = appState.calcMass !== undefined ? appState.calcMass : 2;
+
+      renderPhaseGraph();
+      renderConstantsTable();
+      updateMeltingCalc();
+      renderClosedQuiz();
+      renderOpenQuiz();
+      renderWorkedExamples();
+      renderPracticeTasks();
+      updateProgressCounter();
+      triggerMathRender();
+    }
+
+    // =========================================================================
+    // INITIALIZATION
+    // =========================================================================
+
+    async function initApp() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            appState = Object.assign(JSON.parse(JSON.stringify(DEFAULT_STATE)), saved);
+          }
+        }
+      } catch (err) {
+        // Fallback to default state
+      }
+
+      syncAllUI();
+
+      // Re-run KaTeX once deferred script finishes loading
+      window.addEventListener(`load`, triggerMathRender);
+
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+          window.notebookAppApi.notifyAppReady();
+        }
+      } catch (err) {
+        // Ignore if not hosted
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>
